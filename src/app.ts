@@ -77,7 +77,7 @@ function counting(word:string):number{
   return counter;
 }
 
-function isIt(letter) {
+function isIt(letter:string):boolean {
   if (letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u" || letter == "y")
       return true;
   return false;
@@ -92,9 +92,9 @@ let check1:number = 0
 let nums:number[] = [1,2,3,3,4,9,9,10,11,20]
 
 
-function isGreater(tab):boolean{
+function isGreater(tab:number[]):boolean{
   for( var i = 1; i < tab.length; i++){
-    if(tab[i] >= tab[i-1]){
+    if(tab[i] > tab[i-1]){
       check1++;
     }
     else{
@@ -116,3 +116,23 @@ if(isGreater(nums)){
 else {
   console.log("Tablica nie jest posortowana rosnaco")
 }
+//---Zadanie dodatkowe----------------------------------
+//Funkcja zliczajaca powtarzajace sie liczby
+let nums2:number[] = [1,2,3,3,4,9,9,10,11,20]
+let numsZlicz:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+let counter:number = 0
+
+function counting1(tab:number[]):number{
+  for(var i = 0; i<tab.length; i++){
+    numsZlicz[tab[i]]++;
+  }
+  for(var i = 0; i<numsZlicz.length; i++){
+    if(numsZlicz[i]>1){
+      counter=counter+numsZlicz[i]
+    }
+  }
+  return counter
+}
+counting1(nums2)
+
+console.log("Tablica zawiera "+ counter +" liczb powtarzajacych sie")
